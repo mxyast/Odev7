@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="toDoDetayToolbarBaslik"
+            type="String" />
+        <variable
+            name="toDoDetayFragment"
+            type="com.mit.odev7.ui.fragment.ToDoDetayFragment" />
+        <variable
+            name="toDoNesnesi"
+            type="com.mit.odev7.data.entity.ToDo" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.fragment.ToDoDetayFragment">
+
+
+    <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarGuncelle"
+            app:title="@{toDoDetayToolbarBaslik}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintBottom_toTopOf="@+id/buttonGüncelle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarGuncelle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextToDoDetay"
+                android:text="@{toDoNesnesi.name}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="toDo" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/buttonGüncelle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:text="guncelle"
+            android:onClick="@{() -> toDoDetayFragment.guncelle(toDoNesnesi.toDo_id,editTextToDoDetay.getText().toString())}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_activity_nav"
+    app:startDestination="@id/anasayfaFragment">
+    <fragment
+        android:id="@+id/anasayfaFragment"
+        android:name="com.mit.odev7.ui.fragment.AnasayfaFragment"
+        android:label="AnasayfaFragment" >
+        <action
+            android:id="@+id/toDoDetayGecis"
+            app:destination="@id/toDoDetayFragment" />
+        <action
+            android:id="@+id/toDoKayitGecis"
+            app:destination="@id/toDoKayitFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/toDoDetayFragment"
+        android:name="com.mit.odev7.ui.fragment.ToDoDetayFragment"
+        android:label="ToDoDetayFragment" >
+        <argument
+            android:name="toDo"
+            app:argType="com.mit.odev7.data.entity.ToDo" />
+    </fragment>
+    <fragment
+        android:id="@+id/toDoKayitFragment"
+        android:name="com.mit.odev7.ui.fragment.ToDoKayitFragment"
+        android:label="ToDoKayitFragment" />
+</navigation>
